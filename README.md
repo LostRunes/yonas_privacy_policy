@@ -2,6 +2,8 @@
 
 Public privacy policy for the **Yonas** Android app (`com.yonash.app`).
 
-Published via GitHub Pages and linked from the Google Play store listing.
+A single static page, linked from the Google Play store listing.
+Deployed as a static site — no build step, no framework.
 
-- Policy: [index.html](index.html)
+- Page: [index.html](index.html)
+- Branding mirrors the app's design tokens (sand/cocoa/orange, with the midnight/gold scheme in dark mode).

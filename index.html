@@ -4,186 +4,476 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Yonas</title>
-<meta name="description" content="Privacy Policy for the Yonas mobile application.">
+<meta name="description" content="Privacy Policy for Yonas, the community app for finding and sharing street-food stalls, campus spots and restaurants.">
+<meta name="theme-color" content="#FBF4E9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Gloock&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fdfbee; --fg: #1a1a1a; --muted: #595959; --rule: #e0ddcc;
-    --accent: #8a5a00; --card: #ffffff; --code: #f2efe0;
+/* ------------------------------------------------------------------ *
+ * Tokens — mirrored from the app's theme/tokens.js so this page and
+ * the app read as one product. Light is the sand scheme the app ships
+ * on; dark is the legacy midnight/gold scheme from the same file.
+ * ------------------------------------------------------------------ */
+:root {
+  --bg:        #FBF4E9;  /* sand100  — the page itself      */
+  --card:      #FFFCF7;  /* sand000  — raised surfaces      */
+  --inset:     #F4E9D8;  /* sand200  — chips, insets        */
+  --rule:      #E9DAC3;  /* sand300  — hairlines            */
+  --fg:        #3B2C20;  /* cocoa900 — primary text         */
+  --muted:     #8A7358;  /* cocoa600 — secondary text       */
+  --faint:     #B3A08A;  /* cocoa400 — tertiary             */
+  --accent:    #DD7A2C;  /* orange600 — contrast-safe       */
+  --accent-br: #F59A4B;  /* orange500 — highlight           */
+  --accent-sf: rgba(245,154,75,0.12);
+  --shadow-sm: 0 1px 2px rgba(59,44,32,0.06), 0 2px 8px rgba(59,44,32,0.04);
+  --shadow-md: 0 2px 6px rgba(59,44,32,0.07), 0 12px 32px rgba(59,44,32,0.07);
+  --tile-ring: rgba(59,44,32,0.10);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #090909; --card: #171717; --inset: #202020;
+    --rule: rgba(255,255,255,0.09);
+    --fg: #FFFFFF; --muted: #A0A0A0; --faint: #777777;
+    --accent: #D4AF37; --accent-br: #F4C542;
+    --accent-sf: rgba(212,175,55,0.13);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.5), 0 16px 40px rgba(0,0,0,0.45);
+    --tile-ring: rgba(255,255,255,0.10);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #141414; --fg: #ececec; --muted: #a0a0a0; --rule: #2e2e2e;
-      --accent: #e8b55c; --card: #1d1d1d; --code: #242424;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #141414; --fg: #ececec; --muted: #a0a0a0; --rule: #2e2e2e;
-    --accent: #e8b55c; --card: #1d1d1d; --code: #242424;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 16px 96px; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; }
-  h2 { font-size: 1.25rem; margin: 40px 0 12px; letter-spacing: -0.01em; }
-  h3 { font-size: 1rem; margin: 24px 0 8px; }
-  .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 32px; }
-  p, li { color: var(--fg); }
-  a { color: var(--accent); }
-  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.93rem; display: block; overflow-x: auto; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  th { font-weight: 600; white-space: nowrap; }
-  .note { background: var(--card); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 14px 16px; border-radius: 6px; margin: 20px 0; }
-  code { background: var(--code); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
-  ul { padding-left: 22px; }
-  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+}
+:root[data-theme="dark"] {
+  --bg: #090909; --card: #171717; --inset: #202020;
+  --rule: rgba(255,255,255,0.09);
+  --fg: #FFFFFF; --muted: #A0A0A0; --faint: #777777;
+  --accent: #D4AF37; --accent-br: #F4C542;
+  --accent-sf: rgba(212,175,55,0.13);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.5), 0 16px 40px rgba(0,0,0,0.45);
+  --tile-ring: rgba(255,255,255,0.10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px; line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 16px 56px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 90% at 50% -10%, var(--accent-sf), transparent 70%);
+  pointer-events: none;
+}
+.hero > * { position: relative; }
+.tile {
+  width: 92px; height: 92px; margin: 0 auto 22px;
+  border-radius: 22px; overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--tile-ring);
+}
+.tile img { width: 100%; height: 100%; display: block; }
+.wordmark {
+  font-family: Gloock, Georgia, serif;
+  font-size: clamp(2.6rem, 9vw, 3.6rem);
+  line-height: 1; margin: 0 0 6px; letter-spacing: -0.015em;
+}
+h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.05rem, 3.4vw, 1.3rem);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 18px;
+}
+.meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.chip {
+  display: inline-block; margin-top: 14px;
+  background: var(--inset); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 5px 14px;
+  font-size: 0.8rem; color: var(--muted);
+  font-variant-ligatures: none;
+}
+.chip code { font-size: 0.95em; color: var(--fg); }
+
+/* ---------- Layout ---------- */
+.shell {
+  max-width: 1120px; margin: 0 auto; padding: 48px 16px 96px;
+  display: grid; gap: 48px;
+  /* minmax(0,…) not 1fr: a grid child defaults to min-width:auto, which lets
+     the data tables' min-width push the whole column wider than the screen. */
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 980px) {
+  .shell { grid-template-columns: 232px minmax(0,1fr); gap: 56px; align-items: start; }
+}
+
+/* ---------- Table of contents ---------- */
+.toc { font-size: 0.9rem; }
+@media (min-width: 980px) {
+  .toc { position: sticky; top: 32px; max-height: calc(100vh - 64px); overflow-y: auto; }
+}
+.toc h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--faint); margin: 0 0 12px; font-weight: 600;
+}
+.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.toc li { counter-increment: toc; }
+.toc a {
+  display: block; padding: 7px 12px; border-radius: 8px;
+  color: var(--muted); text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.toc a::before {
+  content: counter(toc) "."; color: var(--faint);
+  display: inline-block; width: 2em; font-variant-numeric: tabular-nums;
+}
+/* Two columns on narrow screens, so twelve entries do not push the policy
+   itself a full screen down. */
+@media (max-width: 979px) {
+  .toc ol { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
+}
+@media (max-width: 420px) {
+  .toc ol { grid-template-columns: 1fr; }
+}
+.toc a:hover { color: var(--fg); background: var(--inset); }
+.toc a.active {
+  color: var(--accent); border-left-color: var(--accent);
+  background: var(--accent-sf); font-weight: 600;
+}
+.toc a.active::before { color: var(--accent); }
+
+/* ---------- Content ---------- */
+.sheet {
+  min-width: 0;            /* lets the table scroll inside, not the page */
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: clamp(24px, 5vw, 52px);
+  box-shadow: var(--shadow-sm);
+}
+.lede { font-size: 1.08rem; color: var(--fg); margin-top: 0; }
+.lede + p { color: var(--muted); }
+
+section { scroll-margin-top: 24px; }
+section + section { margin-top: 44px; padding-top: 40px; border-top: 1px solid var(--rule); }
+
+h2.sec {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600; font-size: 1.4rem; line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin: 0 0 16px; display: flex; gap: 14px; align-items: baseline;
+}
+h2.sec .num {
+  flex: none;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--accent); background: var(--accent-sf);
+  border-radius: 7px; padding: 4px 9px;
+  font-variant-numeric: tabular-nums;
+  position: relative; top: -2px;
+}
+h3 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600; font-size: 1.07rem;
+  margin: 30px 0 10px;
+}
+p { margin: 0 0 15px; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:hover { color: var(--accent-br); }
+strong { font-weight: 600; }
+ul { padding-left: 20px; margin: 0 0 15px; }
+li { margin-bottom: 8px; }
+li::marker { color: var(--accent); }
+code {
+  background: var(--inset); border: 1px solid var(--rule);
+  padding: 1px 6px; border-radius: 5px;
+  font-size: 0.86em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+/* ---------- Tables ---------- */
+.tablewrap {
+  margin: 20px 0; border: 1px solid var(--rule);
+  border-radius: 12px; overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; min-width: 460px; }
+thead th {
+  background: var(--inset);
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); font-weight: 700;
+  text-align: left; padding: 11px 15px; white-space: nowrap;
+}
+tbody td { padding: 13px 15px; border-top: 1px solid var(--rule); vertical-align: top; }
+tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--inset) 38%, transparent); }
+td:first-child { font-weight: 600; white-space: nowrap; }
+
+/* ---------- Callout ---------- */
+.note {
+  background: var(--accent-sf);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 18px; margin: 22px 0;
+}
+.note p:last-child { margin-bottom: 0; }
+.note .label {
+  display: block; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 6px;
+}
+
+/* ---------- Contact card ---------- */
+.contact {
+  background: var(--inset); border: 1px solid var(--rule);
+  border-radius: 12px; padding: 20px 22px; margin: 20px 0;
+}
+.contact .who { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.05rem; }
+.contact a { font-weight: 600; word-break: break-word; }
+
+/* ---------- Footer ---------- */
+footer {
+  max-width: 1120px; margin: 0 auto;
+  padding: 0 16px 64px; text-align: center;
+  color: var(--faint); font-size: 0.85rem;
+}
+footer .sep { margin: 0 8px; opacity: 0.5; }
+
+/* ---------- Print ---------- */
+@media print {
+  .toc, .hero::before { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .sheet { border: 0; box-shadow: none; padding: 0; background: #fff; }
+  .hero { padding: 0 0 20px; border-bottom: 1px solid #ccc; }
+  section + section { page-break-inside: avoid; }
+  a { color: #000; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<h1>Privacy Policy for Yonas</h1>
-<p class="meta">Last updated: 7 October 2026 &nbsp;·&nbsp; Applies to the Yonas Android application (<code>com.yonash.app</code>)</p>
+<header class="hero">
+  <div class="tile"><img src="assets/logo-mark.png" alt="Yonas app icon" width="92" height="92"></div>
+  <div class="wordmark">Yonas</div>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated 8 October 2026</p>
+  <span class="chip">Android &nbsp;·&nbsp; <code>com.yonash.app</code></span>
+</header>
 
-<p>Yonas is a community app for finding and sharing street-food stalls, campus spots and restaurants. This policy explains what personal data the app collects, why it is collected, who it is shared with, and the choices you have over it.</p>
+<div class="shell">
 
-<p>In this policy, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;the developer&rdquo; mean Abinash Mohanty, the independent developer of Yonas. &ldquo;You&rdquo; means the person using the app.</p>
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#data-we-collect">Data we collect</a></li>
+      <li><a href="#location">Location data</a></li>
+      <li><a href="#camera">Camera and photos</a></li>
+      <li><a href="#public">Content that is public</a></li>
+      <li><a href="#sharing">Who data is shared with</a></li>
+      <li><a href="#where">Where data is held</a></li>
+      <li><a href="#retention">How long we keep it</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
 
-<h2>1. Data we collect</h2>
+  <main class="sheet">
 
-<table>
-<thead><tr><th>Data</th><th>Why we collect it</th><th>Required?</th></tr></thead>
-<tbody>
-<tr><td><strong>Email address</strong></td><td>Received from Google when you sign in. It identifies your account.</td><td>Required to sign in</td></tr>
-<tr><td><strong>Name and profile picture</strong></td><td>Received from Google to pre-fill your Yonas profile. Shown publicly next to your posts.</td><td>Required to sign in</td></tr>
-<tr><td><strong>Username and bio</strong></td><td>Optional details you choose to add to your public profile.</td><td>Optional</td></tr>
-<tr><td><strong>Approximate and precise location</strong></td><td>To show stalls and restaurants near you, and to attach a position to a place you add to the map.</td><td>Optional</td></tr>
-<tr><td><strong>Photos you take or select</strong></td><td>To attach images to a stall, review, post or story you create, and to set your profile picture.</td><td>Optional</td></tr>
-<tr><td><strong>Content you create</strong></td><td>Reviews, ratings, replies, stories, posts, stalls, campus spots, menus and saved places.</td><td>Optional</td></tr>
-<tr><td><strong>Last-active timestamp</strong></td><td>A periodic heartbeat so the app can show which users are currently active.</td><td>Automatic while signed in</td></tr>
-<tr><td><strong>Campus / area selection</strong></td><td>To rank nearby places and position you on community leaderboards.</td><td>Optional</td></tr>
-</tbody>
-</table>
+    <p class="lede">Yonas is a community app for finding and sharing street-food stalls, campus spots and restaurants. This policy explains what personal data the app collects, why it is collected, who it is shared with, and the choices you have over it.</p>
 
-<div class="note">
-<strong>What Yonas does <em>not</em> do.</strong> Yonas contains no advertising and no advertising identifiers. It uses no third-party analytics, tracking or profiling SDKs. We do not sell your personal data, and we do not share it with data brokers or advertisers. We never collect your contacts, SMS, call logs, microphone audio or browsing history.
+    <p>In this policy, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;the developer&rdquo; mean Abinash Mohanty, the independent developer of Yonas. &ldquo;You&rdquo; means the person using the app.</p>
+
+    <section id="data-we-collect">
+      <h2 class="sec"><span class="num">01</span> Data we collect</h2>
+
+      <div class="tablewrap">
+      <table>
+        <thead><tr><th>Data</th><th>Why we collect it</th><th>Required?</th></tr></thead>
+        <tbody>
+          <tr><td>Email address</td><td>Received from Google when you sign in. It identifies your account.</td><td>Required to sign in</td></tr>
+          <tr><td>Name &amp; picture</td><td>Received from Google to pre-fill your Yonas profile. Shown publicly next to your posts.</td><td>Required to sign in</td></tr>
+          <tr><td>Username &amp; bio</td><td>Optional details you choose to add to your public profile.</td><td>Optional</td></tr>
+          <tr><td>Location</td><td>To show stalls and restaurants near you, and to attach a position to a place you add to the map.</td><td>Optional</td></tr>
+          <tr><td>Photos</td><td>To attach images to a stall, review, post or story you create, and to set your profile picture.</td><td>Optional</td></tr>
+          <tr><td>Your content</td><td>Reviews, ratings, replies, stories, posts, stalls, campus spots, menus and saved places.</td><td>Optional</td></tr>
+          <tr><td>Last-active time</td><td>A periodic heartbeat so the app can show which users are currently active.</td><td>While signed in</td></tr>
+          <tr><td>Campus / area</td><td>To rank nearby places and position you on community leaderboards.</td><td>Optional</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="note">
+        <span class="label">What Yonas does not do</span>
+        <p>Yonas contains no advertising and no advertising identifiers. It uses no third-party analytics, tracking or profiling SDKs. We do not sell your personal data, and we do not share it with data brokers or advertisers. We never collect your contacts, SMS, call logs, microphone audio or browsing history.</p>
+      </div>
+    </section>
+
+    <section id="location">
+      <h2 class="sec"><span class="num">02</span> Location data in detail</h2>
+      <p>Location is requested only while the app is in use, and only after you grant permission at the operating-system prompt. Yonas does not collect location in the background and does not track your movement over time.</p>
+      <p>Location is used in two ways:</p>
+      <ul>
+        <li><strong>To sort places by distance</strong> from where you are. This happens on your device and the coordinate is not stored on our servers.</li>
+        <li><strong>To position a place you add.</strong> When you add a stall, spot or restaurant to the map, the coordinate you choose is stored and shown publicly as that place&rsquo;s location.</li>
+      </ul>
+      <p>You can refuse the permission or revoke it at any time in <strong>Android Settings &rsaquo; Apps &rsaquo; Yonas &rsaquo; Permissions</strong>. The app remains usable without it; you will need to search or place pins manually.</p>
+    </section>
+
+    <section id="camera">
+      <h2 class="sec"><span class="num">03</span> Camera and photos</h2>
+      <p>Yonas requests camera and photo-library access only at the moment you choose to add an image. We access only the specific images you select. We do not scan, index or upload your photo library.</p>
+      <p>Photos you submit are uploaded to our image hosting provider (see section 5) and become part of the public content attached to the place, review or post you added them to.</p>
+      <div class="note">
+        <span class="label">Before you upload</span>
+        <p>Photographs may contain embedded metadata, including the location where they were taken. Consider this before uploading an image taken somewhere private.</p>
+      </div>
+    </section>
+
+    <section id="public">
+      <h2 class="sec"><span class="num">04</span> Content that is public</h2>
+      <p>Yonas is a community app, and much of it is public by design. The following are visible to anyone using the app, including people who are not signed in:</p>
+      <ul>
+        <li>Your display name, username, profile picture and bio</li>
+        <li>Any stall, spot, restaurant, review, rating, reply, post or story you publish</li>
+        <li>Photographs you attach to that content</li>
+        <li>Your position on community leaderboards</li>
+        <li>Whether you were recently active in the app</li>
+      </ul>
+      <p>Please do not post anything you would not want publicly associated with you. Content you publish may be seen, screenshotted or copied by others, and we cannot recall those copies.</p>
+    </section>
+
+    <section id="sharing">
+      <h2 class="sec"><span class="num">05</span> Who your data is shared with</h2>
+      <p>We share personal data only with the service providers that make the app work. Each processes data on our instructions under its own privacy terms.</p>
+      <div class="tablewrap">
+      <table>
+        <thead><tr><th>Provider</th><th>What it handles</th><th>Their policy</th></tr></thead>
+        <tbody>
+          <tr><td>Google</td><td>Sign-in. Google provides us your email, name and profile picture after you authorise it.</td><td><a href="https://policies.google.com/privacy" rel="noopener">View&nbsp;policy</a></td></tr>
+          <tr><td>Supabase</td><td>Our database, authentication and backend functions. Stores your account and the content you create.</td><td><a href="https://supabase.com/privacy" rel="noopener">View&nbsp;policy</a></td></tr>
+          <tr><td>ImageKit</td><td>Storage and delivery of the images you upload.</td><td><a href="https://imagekit.io/privacy-policy/" rel="noopener">View&nbsp;policy</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>We may also disclose data where we are legally required to do so, or where it is necessary to investigate abuse, fraud or a threat to someone&rsquo;s safety.</p>
+    </section>
+
+    <section id="where">
+      <h2 class="sec"><span class="num">06</span> Where your data is held</h2>
+      <p>Our providers operate data centres in several countries, so your data may be stored or processed outside the country you live in, including in the United States and the European Union. Providers are selected on the basis that they offer appropriate contractual safeguards for international transfers.</p>
+    </section>
+
+    <section id="retention">
+      <h2 class="sec"><span class="num">07</span> How long we keep it</h2>
+      <ul>
+        <li><strong>Account data</strong> is kept while your account exists.</li>
+        <li><strong>Content you publish</strong> is kept until you delete it or delete your account.</li>
+        <li><strong>Backups</strong> may retain deleted data for up to 30 days before being overwritten.</li>
+      </ul>
+    </section>
+
+    <section id="rights">
+      <h2 class="sec"><span class="num">08</span> Your rights and your choices</h2>
+      <p>You may at any time:</p>
+      <ul>
+        <li><strong>Access</strong> the data held about you</li>
+        <li><strong>Correct</strong> your profile, directly in the app</li>
+        <li><strong>Delete</strong> individual items of content you created</li>
+        <li><strong>Delete your account</strong> and all data attached to it</li>
+        <li><strong>Withdraw permissions</strong> for location, camera and photos in Android Settings</li>
+        <li><strong>Object</strong> to our processing, or request a portable copy of your data</li>
+      </ul>
+      <p>Depending on where you live, these rights may be granted to you by law &mdash; for example the GDPR in the European Economic Area and the United Kingdom, or the DPDP Act in India. We honour these requests regardless of where you live.</p>
+
+      <h3>Deleting your account</h3>
+      <p>You can delete your Yonas account from <strong>Settings &rsaquo; Delete account</strong> inside the app. You may also request deletion by emailing us at the address below from the address associated with your account.</p>
+      <p>Deleting your account permanently removes your profile, your email address, your uploaded photographs and the content you created. We complete deletion requests within 30 days. Aggregate counts that cannot identify you may remain.</p>
+    </section>
+
+    <section id="children">
+      <h2 class="sec"><span class="num">09</span> Children</h2>
+      <p>Yonas is not directed to children and is not intended for anyone under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it.</p>
+    </section>
+
+    <section id="security">
+      <h2 class="sec"><span class="num">10</span> Security</h2>
+      <p>All traffic between the app and our servers is encrypted in transit using HTTPS/TLS. Access to stored data is restricted by row-level security rules so that a signed-in user can modify only their own records. Upload credentials are short-lived and issued only to signed-in users; no private key is stored in the app.</p>
+      <p>No system is perfectly secure, and we cannot guarantee absolute security. If we become aware of a breach affecting your personal data, we will notify affected users and any regulator we are required to inform.</p>
+    </section>
+
+    <section id="changes">
+      <h2 class="sec"><span class="num">11</span> Changes to this policy</h2>
+      <p>We may update this policy as the app changes. The revision date at the top always reflects the current version. Where a change materially affects how we handle your data, we will give notice in the app before it takes effect.</p>
+    </section>
+
+    <section id="contact">
+      <h2 class="sec"><span class="num">12</span> Contact</h2>
+      <p>For any privacy question, or to exercise any right described above, contact:</p>
+      <div class="contact">
+        <div class="who">Abinash Mohanty</div>
+        <a href="mailto:abinash.mohanty.contact@gmail.com">abinash.mohanty.contact@gmail.com</a>
+      </div>
+      <p>If you are in the EEA or UK and are not satisfied with our response, you have the right to lodge a complaint with your national data protection authority.</p>
+    </section>
+
+  </main>
 </div>
-
-<h2>2. Location data in detail</h2>
-
-<p>Location is requested only while the app is in use, and only after you grant permission at the operating-system prompt. Yonas does not collect location in the background and does not track your movement over time.</p>
-
-<p>Location is used in two ways:</p>
-<ul>
-  <li><strong>To sort places by distance</strong> from where you are. This happens on your device and the coordinate is not stored on our servers.</li>
-  <li><strong>To position a place you add.</strong> When you add a stall, spot or restaurant to the map, the coordinate you choose is stored and shown publicly as that place's location.</li>
-</ul>
-
-<p>You can refuse the permission or revoke it at any time in <em>Android Settings &rsaquo; Apps &rsaquo; Yonas &rsaquo; Permissions</em>. The app remains usable without it; you will need to search or place pins manually.</p>
-
-<h2>3. Camera and photos</h2>
-
-<p>Yonas requests camera and photo-library access only at the moment you choose to add an image. We access only the specific images you select. We do not scan, index or upload your photo library.</p>
-
-<p>Photos you submit are uploaded to our image hosting provider (see section 5) and become part of the public content attached to the place, review or post you added them to.</p>
-
-<div class="note">
-<strong>Please note:</strong> photographs may contain embedded metadata, including the location where they were taken. Consider this before uploading an image taken somewhere private.
-</div>
-
-<h2>4. Content that is public</h2>
-
-<p>Yonas is a community app, and much of it is public by design. The following are visible to anyone using the app, including people who are not signed in:</p>
-
-<ul>
-  <li>Your display name, username, profile picture and bio</li>
-  <li>Any stall, spot, restaurant, review, rating, reply, post or story you publish</li>
-  <li>Photographs you attach to that content</li>
-  <li>Your position on community leaderboards</li>
-  <li>Whether you were recently active in the app</li>
-</ul>
-
-<p>Please do not post anything you would not want publicly associated with you. Content you publish may be seen, screenshotted or copied by others, and we cannot recall those copies.</p>
-
-<h2>5. Who your data is shared with</h2>
-
-<p>We share personal data only with the service providers that make the app work. Each processes data on our instructions under its own privacy terms.</p>
-
-<table>
-<thead><tr><th>Provider</th><th>What it handles</th><th>Their policy</th></tr></thead>
-<tbody>
-<tr><td><strong>Google</strong></td><td>Sign-in. Google provides us your email, name and profile picture after you authorise it.</td><td><a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a></td></tr>
-<tr><td><strong>Supabase</strong></td><td>Our database, authentication and backend functions. Stores your account and the content you create.</td><td><a href="https://supabase.com/privacy" rel="noopener">supabase.com/privacy</a></td></tr>
-<tr><td><strong>ImageKit</strong></td><td>Storage and delivery of images you upload.</td><td><a href="https://imagekit.io/privacy-policy/" rel="noopener">imagekit.io/privacy-policy</a></td></tr>
-</tbody>
-</table>
-
-<p>We may also disclose data where we are legally required to do so, or where it is necessary to investigate abuse, fraud or a threat to someone's safety.</p>
-
-<h2>6. Where your data is held</h2>
-
-<p>Our providers operate data centres in several countries, so your data may be stored or processed outside the country you live in, including in the United States and the European Union. Providers are selected on the basis that they offer appropriate contractual safeguards for international transfers.</p>
-
-<h2>7. How long we keep it</h2>
-
-<ul>
-  <li><strong>Account data</strong> is kept while your account exists.</li>
-  <li><strong>Content you publish</strong> is kept until you delete it or delete your account.</li>
-  <li><strong>Backups</strong> may retain deleted data for up to 30 days before being overwritten.</li>
-</ul>
-
-<h2>8. Your rights and your choices</h2>
-
-<p>You may at any time:</p>
-<ul>
-  <li><strong>Access</strong> the data held about you</li>
-  <li><strong>Correct</strong> your profile, directly in the app</li>
-  <li><strong>Delete</strong> individual items of content you created</li>
-  <li><strong>Delete your account</strong> and all data attached to it</li>
-  <li><strong>Withdraw permissions</strong> for location, camera and photos in Android Settings</li>
-  <li><strong>Object</strong> to our processing, or request a portable copy of your data</li>
-</ul>
-
-<p>Depending on where you live, these rights may be granted to you by law — for example the GDPR in the European Economic Area and the United Kingdom, or the DPDP Act in India. We honour these requests regardless of where you live.</p>
-
-<h3>Deleting your account</h3>
-
-<p>You can delete your Yonas account from <strong>Settings &rsaquo; Delete account</strong> inside the app. You may also request deletion by emailing us at the address below from the address associated with your account.</p>
-
-<p>Deleting your account permanently removes your profile, your email address, your uploaded photographs and the content you created. We complete deletion requests within 30 days. Aggregate counts that cannot identify you may remain.</p>
-
-<h2>9. Children</h2>
-
-<p>Yonas is not directed to children and is not intended for anyone under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it.</p>
-
-<h2>10. Security</h2>
-
-<p>All traffic between the app and our servers is encrypted in transit using HTTPS/TLS. Access to stored data is restricted by row-level security rules so that a signed-in user can modify only their own records. Upload credentials are short-lived and issued only to signed-in users; no private key is stored in the app.</p>
-
-<p>No system is perfectly secure, and we cannot guarantee absolute security. If we become aware of a breach affecting your personal data, we will notify affected users and any regulator we are required to inform.</p>
-
-<h2>11. Changes to this policy</h2>
-
-<p>We may update this policy as the app changes. The revision date at the top always reflects the current version. Where a change materially affects how we handle your data, we will give notice in the app before it takes effect.</p>
-
-<h2>12. Contact</h2>
-
-<p>For any privacy question, or to exercise any right described above, contact:</p>
-
-<p>
-<strong>Abinash Mohanty</strong><br>
-Email: <a href="mailto:abinash.mohanty.contact@gmail.com">abinash.mohanty.contact@gmail.com</a>
-</p>
-
-<p>If you are in the EEA or UK and are not satisfied with our response, you have the right to lodge a complaint with your national data protection authority.</p>
 
 <footer>
-Privacy Policy for Yonas (<code>com.yonash.app</code>) &nbsp;·&nbsp; Effective 7 October 2026
+  Yonas <span class="sep">·</span> <code>com.yonash.app</code> <span class="sep">·</span> Effective 8 October 2026
 </footer>
 
-</div>
+<script>
+/* Highlights the section currently in view in the table of contents. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = links
+    .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+    .filter(Boolean);
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+
+  var visible = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id); else visible.delete(e.target.id);
+    });
+    /* The topmost visible section wins, so the marker never jumps ahead. */
+    for (var i = 0; i < sections.length; i++) {
+      if (visible.has(sections[i].id)) {
+        links.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + sections[i].id);
+        });
+        break;
+      }
+    }
+  }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+</script>
+
 </body>
 </html>
